@@ -44,6 +44,7 @@ class DisjointSet
 		}
 
 		T findSet(const T& data) {
+			if (!contains(data)) throw std::exception("Not there");
 			return findSet(_map[data])->_val;
 		}
 
