@@ -21,13 +21,13 @@ class DisjointSet
 	public:
 		DisjointSet() { }
 
-		void makeSet(T data) {
+		void makeSet(const T& data) {
 			auto node = new Node<T>(data, 0);
 			node->_parent = node;
 			_map[data] = node;
 		}
 
-		void doUnion(T data1, T data2) {
+		void doUnion(const T& data1, const T& data2) {
 			Node<T>* node1 = _map[data1];
 			Node<T>* node2 = _map[data2];
 
@@ -43,7 +43,7 @@ class DisjointSet
 				parent1->_parent = parent2;
 		}
 
-		T findSet(T data) {
+		T findSet(const T& data) {
 			return findSet(_map[data])->_val;
 		}
 
@@ -51,7 +51,7 @@ class DisjointSet
 			return _map.size();
 		}
 
-		bool contains(T data) const {
+		bool contains(const T& data) const {
 			return _map.find(data) != _map.end();
 		}
 
